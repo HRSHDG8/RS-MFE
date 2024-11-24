@@ -2,15 +2,22 @@
 
 ## Agenda: Using ReactJS for Microfrontends with Emotion
 
-1. Introduction
+1. ### Introduction
+
    - Overview of using ReactJS to develop microfrontends.
+
    When using ReactJS to develop microfrontends, I break a large application into smaller, independently deployable modules, each built with React. This approach helps me maintain modularity and scalability, allowing different teams to work on features simultaneously. With React's component-based architecture and tools like React Router and Module Federation, I can seamlessly integrate and manage communication between microfrontends.
+
    - Comparison between NPM Module and Microfrontend
+
    When comparing NPM modules and microfrontends, I see NPM modules as reusable libraries or packages that I can share across projects, focusing on code reusability. Microfrontends, on the other hand, let me build and deploy independent pieces of an application that function as standalone features, focusing more on runtime integration and scalability. Both approaches have their place, depending on the project's needs.
+
    - Brief on emotion and its role in building encapsulated microfrontends
+
    Emotion is a powerful CSS-in-JS library that I use to style components dynamically in React. When building encapsulated microfrontends, it helps me maintain scoped and isolated styles, ensuring that each microfrontend's styling doesn’t leak or clash with others. This makes it easier to create cohesive yet independent modules with consistent theming.
 
-2. Methodology
+2. ### Methodology
+
    - Explanation of the microfrontend architecture.
    Microfrontend architecture allows me to break down a large application into smaller, independently developed and deployed frontend modules. Each microfrontend owns a specific feature or section, communicating with others seamlessly while maintaining its own codebase, styles, and lifecycle. This approach helps me enhance scalability, team autonomy, and code maintainability.
    - Setting up a project with ReactJS and Emotion.
@@ -20,7 +27,8 @@
    - Tools and libraries to facilitate microfrontend development (e.g., Module Federation).
    To facilitate microfrontend development, I rely on tools like Module Federation and Emotion. Module Federation, part of Webpack, allows me to dynamically load and share code between microfrontends at runtime, making integration seamless without duplicating dependencies. It’s incredibly useful for sharing components or utilities across independent teams. Emotion complements this by enabling me to style components with scoped CSS-in-JS, ensuring each microfrontend maintains its own design integrity without conflicting styles. Together, these tools help me build modular, encapsulated, and maintainable microfrontends efficiently.
 
-3. Architecture
+3. ### Architecture
+
    - Designing a scalable microfrontend architecture.
    When designing a scalable microfrontend architecture, I focus on clear boundaries between features, ensuring each microfrontend is independently deployable and maintainable. I choose a communication strategy, like shared events or APIs, to allow seamless interaction without tight coupling. Using tools like Module Federation, I manage shared dependencies effectively while avoiding duplication. I also enforce style isolation with libraries like Emotion, ensuring consistent design without conflicts. Finally, I prioritize a well-organized deployment pipeline and version control to handle updates across teams smoothly, enabling long-term scalability.
    I prefer versioning incremental changes using the semantic versioning (semver) approach, similar to how it’s done for NPM packages. Since microfrontends rely on runtime integration, embedding the version number in the deployment URL is a practical choice. For example, a URL like <https://some-awesome-host.com/microfrontends/testimonials/v1.1.0/remoteEntry.js> makes it easy to track and manage versions. This approach is particularly useful for maintaining compatibility, as not all clients may adopt major updates immediately. By versioning this way, I can ensure smoother integration and better client relationships while avoiding breaking changes for those using older versions.
@@ -29,7 +37,8 @@
    - Sharing common assets and libraries (e.g., Emotion components).
    When sharing common assets and libraries like Emotion components across microfrontends, Module Federation becomes invaluable. It allows me to share React components, utilities, and styles at runtime without duplicating them in each microfrontend, promoting efficiency and consistency. For example, I can share a common set of Emotion-styled components across different microfrontends, ensuring a unified design without redundant code. However, there are some pitfalls, such as version mismatches between shared libraries, which could cause compatibility issues. To avoid this, I need to carefully manage dependencies and ensure that all microfrontends are aligned on compatible versions of shared libraries. Additionally, excessive sharing can lead to tightly coupled microfrontends, which I aim to minimize. By using Module Federation wisely, I can strike a balance between code reuse and maintaining loose coupling, enhancing the overall development experience and scalability of the microfrontend architecture.
 
-4. Common Issues and Pitfalls
+4. ### Common Issues and Pitfalls
+
    - Shadow dom for encapsulation
    When it comes to encapsulating microfrontends, using the Shadow DOM is a common approach, but it presents challenges, especially with React Portals. React Portals allow me to render components outside the DOM hierarchy, but when working within a Shadow DOM, I run into issues because portals aren't automatically rendered inside the shadow tree. This means I need to explicitly target and render portals within the shadow root, which can add complexity. Additionally, one of the challenges with using the Shadow DOM is accessibility (a11y)—screen readers and other assistive technologies might struggle to detect content within the shadow tree. I need to ensure proper focus management and ARIA attributes to make these components accessible, which can require extra effort to maintain a seamless user experience.
    Solution:
@@ -39,7 +48,8 @@
    - Ensuring communication and data sharing.
    Ensuring smooth communication and data sharing between microfrontends can be tricky, especially when trying to keep them loosely coupled. I aim to minimize direct dependencies, but sometimes data needs to flow between microfrontends. For this, I often use event-driven communication or shared APIs to avoid tight coupling. However, this can introduce challenges in maintaining consistency and synchronizing state across different parts of the app. To mitigate this, I implement clear contracts for data exchange and ensure proper versioning of APIs. While this approach reduces direct communication, it still requires careful planning and coordination to avoid potential issues with data integrity and synchronization. Additionally, I use tools like Redux or Context API to manage global state and ensure that data is accessible to all microfrontends that need it. By using these strategies, I can maintain loose coupling while still enabling effective communication and data sharing between microfrontends. The key is to pass information via well-defined interfaces as props and to minimize the amount of data that needs to be shared, which can help reduce the complexity of managing state across microfrontends and avoid direct access of common context via the microfrontends.
 
-5. Conclusion and Q&A
+5. ### Conclusion and Q&A
+
    - Recap of the benefits of using ReactJS and MUI for microfrontends.
    Using ReactJS and MUI for microfrontends offers several key benefits. React's component-based architecture makes it easy to break down the application into smaller, reusable modules, allowing for independent development and deployment. MUI provides a set of pre-built, accessible, and customizable UI components, helping maintain design consistency across microfrontends while saving time on UI development. Together, ReactJS and MUI streamline the process of building scalable, maintainable, and visually cohesive microfrontends, making it easier to handle complex applications with multiple teams.
    - Final thoughts on the future of microfrontend architecture.
