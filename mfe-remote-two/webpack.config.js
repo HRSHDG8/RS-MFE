@@ -32,7 +32,7 @@ module.exports = {
       template: './public/index.html',
     }),
     new ModuleFederationPlugin({
-      name: "mfe_remote_two",
+      name: "misc",
       filename: "remoteEntry.js",
       exposes: {
         "./Footer": "./src/components/Footer",
@@ -48,6 +48,11 @@ module.exports = {
           eager: true,
           requiredVersion: "^18.0.0",
         },
+        "@emotion/react": {
+          singleton: true,
+          eager: true,
+          requiredVersion: "^11.13.5"
+        }
       },
     }),
   ],

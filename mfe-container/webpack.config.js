@@ -36,8 +36,8 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "container",
       remotes: {
-        MFEOne: "mfe_remote_one@http://localhost:3001/remoteEntry.js",
-        MFETwo: "mfe_remote_two@http://localhost:3002/remoteEntry.js",
+        Testimonial: "testimonial@http://localhost:3001/remoteEntry.js",
+        Misc: "misc@http://localhost:3002/remoteEntry.js",
       },
       shared: {
         react: {
@@ -50,6 +50,11 @@ module.exports = {
           eager: true,
           requiredVersion: "^18.0.0",
         },
+        "@emotion/react": {
+          singleton: true,
+          eager: true,
+          requiredVersion: "^11.13.5"
+        }
       },
     }),
   ],

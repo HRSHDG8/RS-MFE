@@ -32,10 +32,11 @@ module.exports = {
       template: './public/index.html',
     }),
     new ModuleFederationPlugin({
-      name: "mfe_remote_one",
+      name: "testimonial",
       filename: "remoteEntry.js",
       exposes: {
-        "./Header": "./src/components/Header",
+        "./Form": "./src/components/TestimonialForm",
+        "./Section": "./src/components/TestimonialSection"
       },
       shared: {
         react: {
@@ -48,6 +49,11 @@ module.exports = {
           eager: true,
           requiredVersion: "^18.0.0",
         },
+        "@emotion/react": {
+          singleton: true,
+          eager: true,
+          requiredVersion: "^11.13.5"
+        }
       },
     }),
   ],
